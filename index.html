@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to Google Icon Link -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- Link to Boxicons CSS file -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Link to custom CSS file -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <style>
+/* Importing fonts */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lexend:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Space+Grotesk:wght@300..700&display=swap');
+
+/* Define custom fonts */
+@font-face {
+    font-family: 'VastagoGrotesk-Regular';
+   /* src: url('../fonts/VG/VastagoGrotesk-Regular.otf') format('opentype'); */
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'VastagoGrotesk-Medium';
+  /*  src: url('../fonts/VG/VastagoGrotesk-Medium.otf') format('opentype'); */
+    font-weight: medium;
+}
+
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "VastagoGrotesk-Regular"; /* Setting default font */
+}
+
+/* Hero section styles */
+.header {
+    height: 100vh; /* Full viewport height */
+    width: 100%;
+    background: #0d0d0d; /* Dark background color */
+    font-family: "VastagoGrotesk-Medium"; /* Setting font for hero section */
+    position: relative;
+}
+
+/* Navigation styles */
+nav {
+    width: 84%; /* Adjust the width of the navigation */
+    margin: auto; 
+    padding: 30px 0; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 12%; /* Logo width */
+    cursor: pointer;
+}
+
+.nav__item {
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+
+.nav__item a {
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease 0s;
+}
+
+nav ul li a:hover {
+    color: #f6a227; /* Color change on hover */
+    font-weight: 600;
+}
+
+/* Info section styles */
+.info {
+    margin-left: 8%; /* Adjust margin as needed */
+    margin-top: 10%; /* Adjust margin as needed */
+}
+
+.info h1 {
+    font-family: "VastagoGrotesk-Medium";
+    font-size: 90px;
+    color: #ffffff;
+    margin-bottom: 30px;
+    line-height: 1;
+}
+
+.info span {
+    font-family: inherit;
+    color: #f6a227; /* Accent color */
+    background: rgb(81,150,44);
+    background: -webkit-linear-gradient(0deg, rgb(96, 186, 47) 0%, rgb(148, 255, 16) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.info p {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+/* Button styles */
+button {
+    font-size: 18px;
+    color: black;
+    display: inline-block;
+    padding: 9px 25px;
+    background: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out 0s;
+}
+
+button:hover {
+    color: white;
+    background: linear-gradient(90deg, rgb(96, 186, 47) 0%, rgb(148, 255, 16) 100%); /* Color change on hover */
+}
+
+.img__box {
+    width: 45%;
+    height: 80%;
+    position: absolute;
+    bottom: 0;
+    right: 100px;
+}
+
+.img__box img{
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    bottom: 4%;
+    transform: translateX(-50%);
+    transition: bottom 1s, left 1s ease;
+}
+
+.img__box:hover .back-img{
+    bottom: 8%; 
+}
+
+/* Social links styles */
+.social-links {
+    margin-left: 8%;
+    margin-top: 100px;
+}
+
+.social-links i {
+    font-size: 30px;
+    color: #ffffff;
+    margin-right: 10px;
+    transition: color 0.3s ease; /* Only transition color */
+}
+
+.social-links i:hover {
+    /* Add gradient as background only on hover */
+    background-image: linear-gradient(90deg, rgb(96, 186, 47) 0%, rgb(148, 255, 16) 100%); 
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; /* Hide original text on hover */
+}
+
+/* Generate Section */
+.generate {
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    justify-content: center;
+    padding-top: 80px;
+    background: #0d0d0d;
+    position: relative;
+}
+
+.background-image-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0.3;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/shape/shape2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0; /* Set a lower z-index to position it between the background and the container */
+}
+
+.generate h1 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 90px;
+    color: #ffffff;
+    margin-top: 80px;
+    margin-bottom: 10px;
+    line-height: 1;
+    letter-spacing: -4px;
+}
+
+.generate h1 span {
+    font-family: inherit;
+    background: rgb(81, 150, 44);
+    background: -webkit-linear-gradient(90deg, rgb(96, 186, 47) 0%, rgb(148, 255, 16) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.generate p {
+    font-family: "Space Grotesk", sans-serif;
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 100px;
+}
+
+.container {
+    position: relative; /* Ensure the container is positioned relatively */
+    width: 450px;
+    background: #2a2a2a73;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    margin: auto;
+    padding: 30px;
+    z-index: 1; /* Set a higher z-index to position it above the background image */
+}
+
+.wrapper {
+    margin-top: 20px; /* Adjust margin */
+    padding-right: 5px;
+}
+
+.wrapper .input-box {
+    position: relative;
+}
+
+.input-box input {
+    width: calc(100% - 60px); /* Adjust input width */
+    height: 55px;
+    color: #fff;
+    font-size: 1.06rem;
+    font-weight: 500;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    border: 1px solid #a3a3a3;
+    padding: 0 2.85rem 0 1rem;
+}
+
+.input-box span {
+    position: absolute;
+    right: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    line-height: 53px;
+}
+
+.input-box span:hover {
+    background-image: linear-gradient(90deg, rgb(96, 186, 47) 0%, rgb(148, 255, 16) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.wrapper .pass-length {
+    margin: 20px 0; /* Adjust margin */
+}
+
+.pass-length .details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pass-length input {
+    width: 100%;
+    height: 5px;
+    accent-color: #5ce81b;
+}
+
+.pass-settings .options {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    margin-top: 20px; /* Adjust margin */
+}
+
+.pass-settings .options .option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    width: calc(100% / 2);
+}
+
+.options .option:first-child {
+    pointer-events: none;
+}
+
+.options .option:first-child input {
+    opacity: 0.7;
+}
+
+.options .option input {
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+}
+
+.options .option label {
+    cursor: pointer;
+    padding-left: 0.60rem;
+}
+
+.wrapper .generate-btn {
+    width: 100%;
+    color: #171717;
+    background: linear-gradient(0deg, rgb(96, 186, 47) 0%, rgb(148, 255, 16) 100%);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.06rem;
+    font-weight: 700;
+    padding: 0.94rem 0;
+    border-radius: 5px;
+    text-transform: uppercase;
+    margin: 0.94rem 0 1.3rem;
+    transition: all 0.2s ease-in-out 0s;
+}
+
+.generate-btn:hover {
+    color: white;
+    text-shadow: 0px 0px 8px #0d0d0d3d;
+    background: linear-gradient(90deg, rgb(96, 186, 47) 0%, rgb(148, 255, 16) 100%); /* Color change on hover */
+}
+
+.credits p {
+    font-family: "VastagoGrotesk-Regular", sans-serif;
+    color: #585858;
+    font-size: 16px;
+    margin-top: 40px;
+}
+
+/* For screens with a width of 1440px */
+@media only screen and (max-width: 1440px) {
+    .info h1 {
+        font-size: 80px; /* Reduce font size */
+    }
+
+    .info p {
+        font-size: 18px; /* Reduce font size */
+    }
+
+    .img__box {
+        width: 20%;
+        height: 65%;
+        right: 150px;
+        bottom: 0;
+        transform: translateY(-10%);
+    }
+
+    .container {
+        align-items: center;
+    }
+}
+
+/* For screens with a width of 1024px */
+@media only screen and (max-width: 1024px) {
+
+    .logo {
+        width: 20%; /* Logo width */
+        cursor: pointer;
+    }
+
+    .info {
+        margin-top: 8%; /* Adjust margin as needed */
+        text-align: center; /* Center align the text */
+        font-size: 18px; /* Reduce font size */
+    }
+
+    .info h1 {
+        text-align: center; /* Center align h1 */
+    }
+
+    .cta-btn {
+        display: none;
+    }
+
+    .social-links {
+        display: none; /* Hide social links */
+    }
+
+    .img__box {
+        margin-top: 60px;
+        width: 100%; /* Take full width */
+        height: 70%;
+        right: 0;
+        bottom: initial; /* Reset bottom position */
+        z-index: 1;
+    }
+}
+
+/* For screens with a width of 768px */
+@media only screen and (max-width: 768px) {
+
+    .logo {
+        width: 30%; /* Logo width */
+        cursor: pointer;
+    }
+
+    .info {
+        margin-left: 4%; /* Adjust margin as needed */
+        margin-top: 6%; /* Adjust margin as needed */
+        text-align: center; /* Center align the text */
+        font-size: 16px; /* Reduce font size */
+    }
+
+    .info h1 {
+        text-align: center; /* Center align h1 */
+        font-size: 70px;
+    }
+
+    .img__box {
+        margin-top: 60px;
+        width: 100%; /* Take full width */
+        height: 70%;
+        right: 0;
+        bottom: initial; /* Reset bottom position */
+    }
+
+    .generate {
+        width: 100%; /* Adjust generate container width */
+    }
+
+    .generate h1 {
+        font-size: 75px;
+        margin-top: 100px;
+    }
+
+    .options .option {
+        width: 100%; /* Set list items to take full width */
+    }
+}
+
+/* For screens with a width of 425px */
+@media only screen and (max-width: 425px) {
+
+    .logo {
+        width: 45%; /* Logo width */
+        cursor: pointer;
+    }
+
+    .info {
+        margin-left: 4%; /* Adjust margin as needed */
+        margin-top: 6%; /* Adjust margin as needed */
+        text-align: center; /* Center align the text */
+        font-size: 14px; /* Further reduce font size */
+    }
+
+    .info h1 {
+        font-size: 60px;
+        text-align: center; /* Center align h1 */
+    }
+
+    .info p {
+        font-size: 17px;
+        font-family: "DM Sans", sans-serif;
+        text-align: center; /* Center align h1 */
+        padding: 0 8% ;
+    }
+
+    .info p br {
+        display: none;
+    }
+
+    .img__box {
+        margin-top: 60px;
+        width: 100%; /* Take full width */
+        height: 45%;
+        right: 0;
+        bottom: initial; /* Reset bottom position */
+    }
+
+    .generate h1 {
+        margin-top: 30px;
+    }
+
+    .generate p {
+        font-size: 1.4rem;
+        margin-bottom: 50px;
+    }
+
+    .generate .container {
+        width: 70%; /* Adjust generate container width */
+    }
+
+    .options .option {
+        width: 80%; /* Set list items to take full width */
+        text-align: left;
+    }
+
+    .credits p { 
+        margin-top: 30px;
+        font-size: 18px;
+    }
+}
+
+
+    </style>
+    <title>Password Generator </title>
+</head>
+<body>
+  
+    <section class="generate" id="generate"> 
+       
+        <div class="background-image-container"></div>
+        <div class="container">
+            <div class="wrapper">
+                <div class="input-box">
+                    <input type="text" disabled>
+                    <span class="material-symbols-outlined">content_copy</span>
+                </div>      
+                <div class="pass-indicator"></div>      
+                <div class="pass-length">
+                <div class="details">
+                    <label class="title">Password Length</label>
+                    <span></span>
+                </div>
+                <input type="range" min="1" max="30" value="15" step="1">
+                </div>
+                <div class="pass-settings">
+                <label class="title">Password Settings</label>
+                <ul class="options">
+                    <li class="option">
+                    <input type="checkbox" id="lowercase" checked>
+                    <label for="lowercase">Lowercase (a-z)</label>
+                    </li>
+                    <li class="option">
+                    <input type="checkbox" id="uppercase">
+                    <label for="uppercase">Uppercase (A-Z)</label>
+                    </li>
+                    <li class="option">
+                    <input type="checkbox" id="numbers">
+                    <label for="numbers">Numbers (0-9)</label>
+                    </li>
+                    <li class="option">
+                    <input type="checkbox" id="symbols">
+                    <label for="symbols">Symbols (!-$^+)</label>
+                    </li>
+                    <li class="option">
+                    <input type="checkbox" id="exc-duplicate">
+                    <label for="exc-duplicate">Exclude Duplicate</label>
+                    </li>
+                    <li class="option">
+                    <input type="checkbox" id="spaces">
+                    <label for="spaces">Include Spaces</label>
+                    </li>
+                </ul>
+                </div>
+                <button class="generate-btn">Generate Password</button>
+            </div>
+        </div>
+      <!--  <div class="credits">
+            <p>BY avinash </p>
+        </div> -->
+    </section>
+
+
+    <!-- JavaScript file for smooth scrolling -->
+    <script>
+        // Smooth scrolling when clicking on anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    <script>
+
+const lengthSlider = document.querySelector(".pass-length input"),
+options = document.querySelectorAll(".option input"),
+copyIcon = document.querySelector(".input-box span"),
+passwordInput = document.querySelector(".input-box input"),
+passIndicator = document.querySelector(".pass-indicator"),
+generateBtn = document.querySelector(".generate-btn");
+
+const characters = { // object of letters, numbers & symbols
+    lowercase: "abcdefghijklmnopqrstuvwxyz",
+    uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    numbers: "0123456789",
+    symbols: "^!$%&|[](){}:;.,*+-#@<>~"
+}
+
+const generatePassword = () => {
+    let staticPassword = "",
+    randomPassword = "",
+    excludeDuplicate = false,
+    passLength = lengthSlider.value;
+
+    options.forEach(option => { // looping through each option's checkbox
+        if(option.checked) { // if checkbox is checked
+            // if checkbox id isn't exc-duplicate && spaces
+            if(option.id !== "exc-duplicate" && option.id !== "spaces") {
+                // adding particular key value from character object to staticPassword
+                staticPassword += characters[option.id];
+            } else if(option.id === "spaces") { // if checkbox id is spaces
+                staticPassword += `  ${staticPassword}  `; // adding space at the beginning & end of staticPassword
+            } else { // else pass true value to excludeDuplicate
+                excludeDuplicate = true;
+            }
+        }
+    });
+
+    for (let i = 0; i < passLength; i++) {
+        // getting random character from the static password
+        let randomChar = staticPassword[Math.floor(Math.random() * staticPassword.length)];
+        if(excludeDuplicate) { // if excludeDuplicate is true
+            // if randomPassword doesn't contains the current random character or randomChar is equal 
+            // to space " " then add random character to randomPassword else decrement i by -1
+            !randomPassword.includes(randomChar) || randomChar == " " ? randomPassword += randomChar : i--;
+        } else { // else add random character to randomPassword
+            randomPassword += randomChar;
+        }
+    }
+    passwordInput.value = randomPassword; // passing randomPassword to passwordInput value
+}
+
+const upadatePassIndicator = () => {
+    // if lengthSlider value is less than 8 then pass "weak" as passIndicator id else if lengthSlider 
+    // value is less than 16 then pass "medium" as id else pass "strong" as id
+    passIndicator.id = lengthSlider.value <= 8 ? "weak" : lengthSlider.value <= 16 ? "medium" : "strong";
+}
+
+const updateSlider = () => {
+    // passing slider value as counter text
+    document.querySelector(".pass-length span").innerText = lengthSlider.value;
+    generatePassword();
+    upadatePassIndicator();
+}
+updateSlider();
+
+const copyPassword = () => {
+    navigator.clipboard.writeText(passwordInput.value); // copying random password
+    copyIcon.innerText = "check"; // changing copy icon to tick
+    copyIcon.style.color = "#4285F4";
+    setTimeout(() => { // after 1500 ms, changing tick icon back to copy
+        copyIcon.innerText = "copy_all";
+        copyIcon.style.color = "#707070";
+    }, 1500);
+}
+
+copyIcon.addEventListener("click", copyPassword);
+lengthSlider.addEventListener("input", updateSlider);
+generateBtn.addEventListener("click", generatePassword);
+
+
+// Get the button elements
+const freeButton = document.querySelector('.cta button');
+const generateButton = document.querySelector('.info .free');
+
+// Add click event listeners to the buttons
+freeButton.addEventListener('click', () => {
+    // Scroll to the generate section
+    document.querySelector('.generate').scrollIntoView({ behavior: 'smooth' });
+});
+
+generateButton.addEventListener('click', () => {
+    // Scroll to the generate section
+    document.querySelector('.generate').scrollIntoView({ behavior: 'smooth' });
+});
+
+
+
+
+    </script>
+    <!-- JavaScript file for QR code generation -->
+    <script src="assets/js/script.js"> </script>
+</body>
+</html>
